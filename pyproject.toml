@@ -15,7 +15,11 @@ classifiers = [
     "License :: OSI Approved :: MIT License",
     "Topic :: Documentation :: Sphinx",
 ]
-dependencies = []
+dependencies = [
+    "furo>=2025.9.25",
+    "sphinx>=8.2.3",
+    "sphinx-lesson>=0.8.16",
+]
 
 [build-system]
 requires = ["uv_build>=0.9.4,<0.10.0"]
