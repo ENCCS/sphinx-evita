@@ -9,13 +9,19 @@ from importlib.metadata import version
 
 __version__ = version("sphinx_evita")
 
+
 def setup(app: Sphinx) -> dict[str, Any]:
     """Setup function for the sphinx-evita extension."""
     app.setup_extension(f"{__name__}.pdfembed")
     app.setup_extension(f"{__name__}.css")
 
+    from .hooks import config_branding, config_theme
+
+    app.connect("config-inited", config_branding)
+    app.connect("config-inited", config_theme)
+
     return {
-        'version': __version__,
-        'parallel_read_safe': True,
-        'parallel_write_safe': True,
+        "version": __version__,
+        "parallel_read_safe": True,
+        "parallel_write_safe": True,
     }
