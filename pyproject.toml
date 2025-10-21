@@ -22,4 +22,7 @@ build-backend = "uv_build"
 
 [dependency-groups]
 dev = [{ include-group = "tests" }]
+docs = [
+    "sphinx-autobuild>=2025.8.25",
+]
 tests = ["pytest>=8.4.2", "pytest-cov>=7.0.0", "pytest-regressions>=2.8.3"]

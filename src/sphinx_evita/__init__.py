@@ -15,10 +15,11 @@ def setup(app: Sphinx) -> dict[str, Any]:
     app.setup_extension(f"{__name__}.pdfembed")
     app.setup_extension(f"{__name__}.css")
 
-    from .hooks import config_branding, config_theme
+    from . import hooks
 
-    app.connect("config-inited", config_branding)
-    app.connect("config-inited", config_theme)
+    if hooks.is_evita_project():
+        app.connect("config-inited", hooks.config_branding)
+        app.connect("config-inited", hooks.config_theme)
 
     return {
         "version": __version__,

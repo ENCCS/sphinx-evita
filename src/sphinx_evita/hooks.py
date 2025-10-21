@@ -33,11 +33,10 @@ def is_evita_project() -> bool:
 
 def config_branding(app: Sphinx, config):
     """Hook to set the HTML favicon and sidebar image"""
-    if is_evita_project():
-        config.html_favicon = str((HERE / "img" / "evita-150x150.png").resolve())
-        config.html_logo = str(
-            (HERE / "img" / "evita-logo-light-transparent.png").resolve()
-        )
+    config.html_favicon = str((HERE / "img" / "evita-150x150.png").resolve())
+    config.html_logo = str(
+        (HERE / "img" / "evita-logo-light-transparent.png").resolve()
+    )
 
 
 def config_theme(app: Sphinx, config):
