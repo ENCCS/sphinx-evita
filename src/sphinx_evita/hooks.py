@@ -25,9 +25,13 @@ def is_evita_project() -> bool:
     owner: str = os.getenv(
         "CI_PROJECT_NAMESPACE", os.getenv("GITHUB_REPOSITORY_OWNER", "")
     )
+    git_url = os.getenv("READTHEDOCS_GIT_CLONE_URL", "")
 
     return (
-        evita or repo.lower().startswith("evita") or owner.lower().startswith("evita")
+        evita
+        or repo.lower().startswith("evita")
+        or owner.lower().startswith("evita")
+        or git_url.lower().startswith("evita")
     )
 
 
