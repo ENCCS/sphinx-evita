@@ -407,7 +407,7 @@ The suggested solutions below use pFUnit.
 [^coderef]: Adapted from the [Coderefinery testing lesson](https://coderefinery.github.io/testing/), licensed CC-BY 4.0.
 
 :::::::{admonition} Repeated use `tabs` and `group-tab` directives with the same key are synced
-:class: seealso
+:class: important
 
 
 ::::::{exercise} Exercise: Design a test for a function that receives a number and returns a number
