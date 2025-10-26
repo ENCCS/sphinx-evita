@@ -27,13 +27,13 @@ Let's give readers a helpful hint!
 
 ::::
 
-## All directives
+## Admonitions
 
-All supported directives are showcased below. They are also classified into 5 groups.
+All supported admonitions are showcased below. They are also classified into 5 groups.
 
 ### Internal
 
-This is meant for the instructor.
+This is meant for the instructor and meant to be ignored by the learner.
 
 :::{instructor-note}
 
@@ -280,7 +280,7 @@ Here is an example of a link to a section heading in this page:
 
 :::{myst-example}
 
-[Here](#all-directives) are all directives that are currently
+[Here](#overview-of-directives) are all directives that are currently
 supported.
 
 :::

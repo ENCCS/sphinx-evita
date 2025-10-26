@@ -1,4 +1,5 @@
 # sphinx-evita
+<!--begin-description-->
 Sphinx plugins and theme customizations for the EVITA project.
 
 ## Purpose
@@ -26,6 +27,8 @@ extensions = [
     "sphinx_evita",
 ]
 ```
+
+<!--end-description-->
 
 > [!NOTE]
 > The official [EVITA template](https://github.com/ENCCS/evita-material-template/) is pre-configured to use this.
