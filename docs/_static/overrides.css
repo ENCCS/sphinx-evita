@@ -1,0 +1,18 @@
+/** MyST examples */
+.myst-example {
+	border: 1px solid var(--color-admonition-title--seealso);
+	border-left-color: var(--color-admonition-title--seealso);
+    border-left-width: .2em;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 5px 15px;
+    margin-bottom: 1rem;
+}
+.myst-example-source > div[class*="highlight-"]{
+    margin: 0;
+}
+.myst-example-render {
+    padding: 0.5rem;
+    padding-left: 1rem;
+}
+.myst-example-render > :first-child {
+    margin-top: 0.5rem;
+}
