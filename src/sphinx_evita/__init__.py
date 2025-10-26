@@ -16,6 +16,7 @@ def setup(app: Sphinx) -> dict[str, Any]:
     app.connect("builder-inited", init_static_path)
 
     app.setup_extension(f"{__name__}.pdfembed")
+    app.setup_extension(f"{__name__}.directives")
     app.setup_extension(f"{__name__}.css")
 
     from . import hooks
