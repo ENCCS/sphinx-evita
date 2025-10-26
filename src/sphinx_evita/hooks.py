@@ -20,7 +20,7 @@ def is_evita_project() -> bool:
     - https://docs.github.com/en/actions/reference/workflows-and-actions/variables
 
     """
-    evita = os.getenv("EVITA")
+    evita = os.getenv("EVITA") in ("true", "1")
     repo: str = os.getenv("CI_PROJECT_NAME", os.getenv("GITHUB_REPOSITORY", ""))
     owner: str = os.getenv(
         "CI_PROJECT_NAMESPACE", os.getenv("GITHUB_REPOSITORY_OWNER", "")
@@ -34,9 +34,10 @@ def is_evita_project() -> bool:
 def config_branding(app: Sphinx, config):
     """Hook to set the HTML favicon and sidebar image"""
     config.html_favicon = str((HERE / "img" / "evita-150x150.png").resolve())
-    config.html_logo = str(
-        (HERE / "img" / "evita-logo-light-transparent.png").resolve()
-    )
+    config.html_theme_options = {
+        "light_logo": "evita-logo-light.png",
+        "dark_logo": "evita-logo-dark.png",
+    }
 
 
 def config_theme(app: Sphinx, config):
