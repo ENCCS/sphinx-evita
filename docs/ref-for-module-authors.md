@@ -1,5 +1,6 @@
 # Reference for module authors
 
+(overview-of-directives)=
 ## Overview of directives
 
 There are some directives defined in 
@@ -504,7 +505,6 @@ function more fine-grained and test only one concept.
 ::::{group-tab} Fortran
 
   :::{literalinclude} code/fortran/test_factorial.pf
-  :language: fortran
   :::
 
 ::::
