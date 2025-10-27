@@ -522,7 +522,7 @@ The `pdfembed` directive can be used to embed slides as follows:
 
 ::::{myst-example}
 
-:::{pdfembed} ../../_static/slides/efficient-array-computing.pdf
+:::{pdfembed} ../_static/slides/efficient-array-computing.pdf
 :::
 
 ::::
