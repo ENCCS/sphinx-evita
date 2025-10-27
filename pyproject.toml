@@ -1,6 +1,6 @@
 [project]
 name = "sphinx-evita"
-version = "0.1.0b0"
+version = "0.1.0b1"
 description = "Sphinx plugins and theme customizations for the EVITA project"
 readme = "README.md"
 authors = [{ name = "Ashwin V. Mohanan", email = "ashwin.mohanan@enccs.se" }]
