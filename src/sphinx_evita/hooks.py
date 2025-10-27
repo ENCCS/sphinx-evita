@@ -31,7 +31,7 @@ def is_evita_project() -> bool:
         evita
         or repo.lower().startswith("evita")
         or owner.lower().startswith("evita")
-        or git_url.lower().startswith("evita")
+        or "evita" in git_url.lower()
     )
 
 
