@@ -1,9 +1,10 @@
 # Reference for module authors
 
 (overview-of-directives)=
+
 ## Overview of directives
 
-There are some directives defined in 
+There are some directives defined in
 [MyST markdown](https://mystmd.org/guide/admonitions) and
 [sphinx-lesson](https://coderefinery.github.io/sphinx-lesson/directives/)
 to highlight blocks within the course materials. Some of these are:
@@ -16,7 +17,7 @@ The core admonition types are defined in Sphinx and MyST-Parser:
 ```{myst-admonitions} attention, caution, danger, error, hint, important, note, seealso, tip, warning
 ```
 
-and these core admonitions take no argument and do not allow custom titles out of the box. More on the core MyST admonitions can be [read here](https://myst-parser.readthedocs.io/en/latest/syntax/admonitions.html#admonitions). 
+and these core admonitions take no argument and do not allow custom titles out of the box. More on the core MyST admonitions can be [read here](https://myst-parser.readthedocs.io/en/latest/syntax/admonitions.html#admonitions).
 
 These directives are extensions on top of the vanilla Markdown syntax. When a markdown cell in a Jupyter notebook contains the following markup for a `tip` admonition it renders into a rectangle with a green heading:
 
@@ -51,6 +52,7 @@ This episode includes
 These are passive directives from the perspective of the learner.
 
 :::{prerequisites}
+
 - Knowledge of X
 - Course on Y
 :::
@@ -82,12 +84,9 @@ It is recommended to use the CUDA version > 10.0.
 
 :::
 
-
 :::{note}
 Here we emphasize an important point from the section.
 :::
-
-
 
 :::{demo}
 
@@ -96,9 +95,6 @@ Due to the faster pace, we do not expect learners to type-along.
 
 :::
 
-
-
-
 :::{seealso}
 
 - Blog by X
@@ -106,14 +102,12 @@ Due to the faster pace, we do not expect learners to type-along.
 
 :::
 
-
 :::{keypoints}
 
 - summary 1
 - summary 2
 
 :::
-
 
 ### Success
 
@@ -125,14 +119,11 @@ You should follow the instructions step-by-step.
 
 :::
 
-
 :::{hint}
 
 In this exercise, you can use A instead of B.
 
 :::
-
-
 
 :::{tip}
 
@@ -143,12 +134,12 @@ In this exercise, you can use A instead of B.
 :::{exercise}
 
 Description of exercise
+
 - Do this
 - then do this
 - finally observe what happens when you do this.
 
 :::
-
 
 :::{solution}
 
@@ -156,13 +147,11 @@ Here is the solution for the above exercise.
 
 :::
 
-
 :::{homework}
 
 Here are the homework assignments for this episode.
 
 :::
-
 
 :::{type-along}
 
@@ -185,13 +174,11 @@ Do not remove the following line.
 
 :::
 
-
 :::{caution}
 
 Do not remove the following line.
 
 :::
-
 
 ### Error
 
@@ -207,14 +194,11 @@ Here is a crucial detail. Pay attention to this.
 
 :::
 
-
 :::{danger}
 
 Here is a danger, a potential pitfall!
 
 :::
-
-
 
 ## Extending admontions
 
@@ -234,7 +218,7 @@ All sphinx-lesson admonitions support custom titles.
 
 ### Making a drop-down admonition
 
-In this example, we show how an exercise admonition can be 
+In this example, we show how an exercise admonition can be
 customized. This is done by adding a `:class: dropdown` *argument*
 as shown below. This renders as a admonition with a
 **Click to show** button.
@@ -278,7 +262,6 @@ To include cross-references, markdown links are used. Refer to
 [myst-parser documentation to learn how to acheive this](https://myst-parser.readthedocs.io/en/latest/syntax/cross-referencing.html).
 Here is an example of a link to a section heading in this page:
 
-
 :::{myst-example}
 
 [Here](#overview-of-directives) are all directives that are currently
@@ -286,7 +269,7 @@ supported.
 
 :::
 
-For citing publications, webpages, books etc. as bibliography, the 
+For citing publications, webpages, books etc. as bibliography, the
 the `conf.py` file should include the extension [sphinxcontrib-bibtex](https://pypi.org/project/sphinxcontrib-bibtex/)
 and the name of a BibTeX file,
 
@@ -307,8 +290,8 @@ in developing this style of teaching {cite}`wilson2016`.
 
 :::
 
-Finally the articles can be listed using the `bibliography` 
-directive. Preferably this should be done at the bottom of the 
+Finally the articles can be listed using the `bibliography`
+directive. Preferably this should be done at the bottom of the
 page.
 
 ::::{myst-example}
@@ -330,7 +313,6 @@ We can design other badges with different colors. See: <https://shields.io/badge
 ## Presenting code
 
 Sphinx and MyST-parser also adds a number of additional admonition types [for presenting code](https://myst-parser.readthedocs.io/en/latest/syntax/code_and_apis.html), such as `code-block` which can be useful.
-
 
 ::::{myst-example}
 :::{code-block} python
@@ -365,12 +347,10 @@ For including code or code-snippets from other files,
 [the `literalinclude` directive](https://myst-parser.readthedocs.io/en/latest/syntax/code_and_apis.html#including-code-from-files)
 can also be adopted.
 
-
 ## Providing system or language-specific course instructions
 
 Using `tabs` and `group-tab` directives we can allow the learner to focus on a single group of instructions.
-Here is an example below[^coderef], starting with the syntax for 
-
+Here is an example below[^coderef], starting with the syntax for
 
 ::::::{myst-example}
 
@@ -409,7 +389,6 @@ The suggested solutions below use pFUnit.
 
 :::::::{admonition} Repeated use `tabs` and `group-tab` directives with the same key are synced
 :class: important
-
 
 ::::::{exercise} Exercise: Design a test for a function that receives a number and returns a number
 :::::{tabs}
@@ -453,13 +432,11 @@ The suggested solutions below use pFUnit.
 
 ::::
 :::::
-        
+
 :::::{discussion}
 The factorial grows very rapidly. What happens if you
 pass a large number as argument to the function?
 :::::
-
-
 
 ::::::{solution}
 
@@ -510,7 +487,7 @@ function more fine-grained and test only one concept.
 ::::
 :::::
 ::::::
-        
+
 ::::::
 
 :::::::
@@ -519,12 +496,12 @@ function more fine-grained and test only one concept.
 
 The `pdfembed` directive can be used to embed slides as follows:
 
-
 ::::{myst-example}
 
-:::{pdfembed} /_static/slides/efficient-array-computing.pdf
+:::{pdfembed} ./_static/slides/efficient-array-computing.pdf
 :::
 
 ::::
 
 **NOTE**: the slides need to be placed under the `content/_static` directory
+
