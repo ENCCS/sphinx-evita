@@ -16,7 +16,7 @@ class Recommendation(Base):
 def setup(app: Sphinx) -> dict[str, Any]:
     DIRECTIVES = [Recommendation]
     for obj in DIRECTIVES:
-        app.add_directive(obj.cssname(), obj)
+        app.add_directive(obj.get_cssname(), obj)
     return {
         "version": __version__,
         "parallel_read_safe": True,
