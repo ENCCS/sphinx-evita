@@ -21,6 +21,12 @@ dependencies = [
     "sphinxcontrib-bibtex>=2.6.5",
 ]
 
+[project.optional-dependencies]
+docs = [
+    "myst-parser>=4.0.1",
+    "sphinx-design>=0.6.1",
+]
+
 [build-system]
 requires = ["uv_build>=0.9.4,<0.10.0"]
 build-backend = "uv_build"
@@ -28,8 +34,7 @@ build-backend = "uv_build"
 [dependency-groups]
 dev = [{ include-group = "tests" }]
 docs = [
-    "myst-parser>=4.0.1",
+    "sphinx-evita[docs]",
     "sphinx-autobuild>=2025.8.25",
-    "sphinx-design>=0.6.1",
 ]
 tests = ["pytest>=8.4.2", "pytest-cov>=7.0.0", "pytest-regressions>=2.8.3"]
