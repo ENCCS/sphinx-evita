@@ -81,7 +81,7 @@ body[data-theme="dark"] {
   .admonition-title::before {
     background-color: var(--evita-color-info) !important;
   }  
-
+}
 
 /* Custom icons for admonitions */
 
