@@ -209,3 +209,4 @@ __marimo__/
 # uv
 .python-version
 uv.lock
+jupyter_execute
