@@ -15,17 +15,14 @@ classifiers = [
   "Topic :: Documentation :: Sphinx",
 ]
 dependencies = [
-    "furo>=2025.9.25",
-    "sphinx>=8.2.3",
-    "sphinx-lesson>=0.8.16",
-    "sphinxcontrib-bibtex>=2.6.5",
+  "furo>=2025.9.25",
+  "sphinx",
+  "sphinx-lesson>=0.8.20",
+  "sphinxcontrib-bibtex>=2.6.5",
 ]
 
 [project.optional-dependencies]
-docs = [
-    "myst-parser>=4.0.1",
-    "sphinx-design>=0.6.1",
-]
+docs = ["myst-parser>=4.0.1", "sphinx-design>=0.6.1"]
 
 [build-system]
 requires = ["uv_build>=0.9.4,<0.10.0"]
@@ -33,8 +30,5 @@ build-backend = "uv_build"
 
 [dependency-groups]
 dev = [{ include-group = "tests" }]
-docs = [
-    "sphinx-evita[docs]",
-    "sphinx-autobuild>=2025.8.25",
-]
+docs = ["sphinx-evita[docs]", "sphinx-autobuild>=2025.8.25"]
 tests = ["pytest>=8.4.2", "pytest-cov>=7.0.0", "pytest-regressions>=2.8.3"]
