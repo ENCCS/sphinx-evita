@@ -4,6 +4,9 @@
 [![Build Status](https://img.shields.io/github/actions/workflow/status/ENCCS/sphinx-evita/build.yaml?branch=main)](https://github.com/ENCCS/sphinx-evita/actions)
 [![Documentation Status](https://readthedocs.org/projects/sphinx-evita/badge/?version=latest)](https://sphinx-evita.readthedocs.io/en/latest/?badge=latest)
 
+> ![warning]
+> Early access preview. See [disclaimer below](#disclaimer).
+
 <!--begin-description-->
 Sphinx plugins and theme customizations for the EVITA project.
 
@@ -35,5 +38,17 @@ extensions = [
 
 <!--end-description-->
 
-> [!NOTE]
-> The official [EVITA template](https://github.com/ENCCS/evita-material-template/) is pre-configured to use this.
+> [!note]
+> The official [EVITA module template](https://code.europa.eu/eurohpc-ju/evita/module-template/) is pre-configured to use this.
+
+## Disclaimer
+
+🇪🇺 Funded by the European Union. Views and opinions expressed
+are however those of the author(s) only and do not necessarily reflect those of
+the European Union or the granting authority (European High-Performance Computing Joint Undertaking: EuroHPC JU).
+Neither the European Union nor the granting authority can be held responsible for them.
+
+**Early access preview**: This material should be regarded as a "living tool" open for
+improvement and its content may be subject to modifications without
+notice. It has not yet undergone formal review by the EuroHPC JU and is shared
+for informational purposes only.
