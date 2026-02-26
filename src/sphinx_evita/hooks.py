@@ -38,7 +38,8 @@ def is_evita_project() -> bool:
 def config_branding(app: Sphinx, config):
     """Hook to set the HTML favicon and sidebar image"""
     config.html_favicon = str((HERE / "img" / "evita-150x150.png").resolve())
-    config.html_theme_options = {
+
+    config.html_theme_options = getattr(config, "html_theme_options", {}) | {
         "light_logo": "evita-logo-light.png",
         "dark_logo": "evita-logo-dark.png",
         "announcement": """\
@@ -55,7 +56,8 @@ def config_branding(app: Sphinx, config):
     }
     # NOTE: the above announcment will be only kept during review phase.
 
-    config.copyright += """ 🇪🇺 Funded by the European Union. Views and opinions expressed 
+    config.copyright = getattr(config, "copyright", "") + """\
+    🇪🇺 Funded by the European Union. Views and opinions expressed 
     are however those of the author(s) only and do not necessarily reflect those of 
     the European Union or the granting authority (European High-Performance Computing Joint Undertaking: EuroHPC JU).
     Neither the European Union nor the granting authority can be held responsible for them.
