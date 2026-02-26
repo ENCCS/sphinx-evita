@@ -4,7 +4,7 @@
 [![Build Status](https://img.shields.io/github/actions/workflow/status/ENCCS/sphinx-evita/build.yaml?branch=main)](https://github.com/ENCCS/sphinx-evita/actions)
 [![Documentation Status](https://readthedocs.org/projects/sphinx-evita/badge/?version=latest)](https://sphinx-evita.readthedocs.io/en/latest/?badge=latest)
 
-> ![warning]
+> [!warning]
 > Early access preview. See [disclaimer below](#disclaimer).
 
 <!--begin-description-->
