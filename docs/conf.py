@@ -16,7 +16,7 @@ git_forge = "code.europa.eu"  # or "github.com"
 git_user = "eurohpc-ju/evita"
 git_repo_name = "sphinx-evita"  # auto-detected from dirname if blank
 git_version = "main"
-conf_py_path = "/content/"  # with leading and trailing slash
+conf_py_path = "docs"
 # -- General configuration ---------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#general-configuration
 
