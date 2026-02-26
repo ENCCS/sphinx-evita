@@ -54,9 +54,13 @@ html_css_files = ["overrides.css"]
 
 # Some theme options such as logo are defined by sphinx-evita extensions
 html_theme_options = {
-    "source_repository": git_repo_url,
-    "source_branch": git_version,
-    "source_directory": conf_py_path,
+    # Gitlab
+    "source_edit_link": f"{git_repo_url}/-/edit/{git_version}/{conf_py_path}/{{filename}}",
+    "source_view_link": f"{git_repo_url}/-/blob/{git_version}/{conf_py_path}/{{filename}}?plain=1",
+    # Github
+    # "source_repository": git_repo_url,
+    # "source_branch": git_version,
+    # "source_directory": conf_py_path,
     "footer_icons": [
         {
             "name": git_forge,
