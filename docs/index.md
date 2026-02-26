@@ -13,8 +13,6 @@ The official [EVITA template](https://github.com/ENCCS/evita-material-template/)
 :maxdepth: 2
 :caption: Contents:
 
+ref-for-module-authors
 ```
-
-<!--NOTE: temporarily withheld -->
-<!--ref-for-module-authors-->
 

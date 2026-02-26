@@ -8,7 +8,7 @@ from sphinx.application import Sphinx
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#project-information
 
 project = "sphinx-evita"
-copyright = "2025, EVITA project"
+copyright = "2026, EVITA project"
 author = "EVITA project"
 release = "0.1.0b0"
 

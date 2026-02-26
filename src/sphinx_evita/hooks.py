@@ -41,7 +41,25 @@ def config_branding(app: Sphinx, config):
     config.html_theme_options = {
         "light_logo": "evita-logo-light.png",
         "dark_logo": "evita-logo-dark.png",
+        "announcement": """\
+<aside style="overflow-wrap: break-word; white-space: wrap !important;">
+<b>⚠️ Disclaimer: </b>
+<span style="font-size: 0.9rem">
+    This material should be regarded as a "living tool" open for
+    improvement and its content may be subject to modifications without
+    notice. It has not yet undergone formal review by the EuroHPC JU and is shared
+    for informational purposes only.
+</span>
+</aside>
+    """,
     }
+    # NOTE: the above announcment will be only kept during review phase.
+
+    config.copyright += """ 🇪🇺 Funded by the European Union. Views and opinions expressed 
+    are however those of the author(s) only and do not necessarily reflect those of 
+    the European Union or the granting authority (European High-Performance Computing Joint Undertaking: EuroHPC JU).
+    Neither the European Union nor the granting authority can be held responsible for them.
+"""
 
 
 def config_theme(app: Sphinx, config):
