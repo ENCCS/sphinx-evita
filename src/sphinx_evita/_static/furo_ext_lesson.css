@@ -168,6 +168,12 @@ body[data-theme="dark"] {
         color: white;
     }
 }
+/* See https://github.com/executablebooks/sphinx-togglebutton/issues/75 */
+button.toggle-button::before {
+  vertical-align: middle;
+  padding-bottom: 1rem;
+}
+
 
 /* Equation numbers to the right */
 .math {
