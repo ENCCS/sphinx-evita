@@ -25,7 +25,7 @@ def is_evita_project() -> bool:
     owner: str = os.getenv(
         "CI_PROJECT_NAMESPACE", os.getenv("GITHUB_REPOSITORY_OWNER", "")
     )
-    git_url = os.getenv("READTHEDOCS_GIT_CLONE_URL", "")
+    git_url = os.getenv("CI_REPOSITORY_URL", os.getenv("READTHEDOCS_GIT_CLONE_URL", ""))
 
     return (
         evita
