@@ -1,4 +1,5 @@
 from __future__ import annotations
+
 import os
 from pathlib import Path
 from typing import TYPE_CHECKING
@@ -12,7 +13,21 @@ HERE = Path(__file__).parent
 def is_evita_project() -> bool:
     """Determine if the current project is an EVITA project.
 
-    Only add the hook if we think we are being built in a EVITA repository / org
+    Checks multiple environment variables to detect if the documentation is being
+    built in an EVITA-related repository or organization. Returns True if any of
+    the following conditions are met:
+
+    - EVITA: Explicitly set to "true" or "1" to indicate an EVITA project
+    - CI_PROJECT_NAME: GitLab CI project name (falls back to GITHUB_REPOSITORY)
+    - CI_PROJECT_NAMESPACE: GitLab CI project namespace (falls back to GITHUB_REPOSITORY_OWNER)
+    - CI_REPOSITORY_URL: GitLab CI repository URL (falls back to READTHEDOCS_GIT_CLONE_URL)
+
+    The function checks if "evita" appears in any of these values (case-insensitive).
+
+    Returns
+    -------
+    bool
+        True if the project is identified as an EVITA project, False otherwise.
 
     See also
     --------
