@@ -15,14 +15,16 @@ def is_evita_project() -> bool:
 
     Checks multiple environment variables to detect if the documentation is being
     built in an EVITA-related repository or organization. Returns True if any of
-    the following conditions are met:
+    the following conditions are met, either
 
-    - EVITA: Explicitly set to "true" or "1" to indicate an EVITA project
-    - CI_PROJECT_NAME: GitLab CI project name (falls back to GITHUB_REPOSITORY)
-    - CI_PROJECT_NAMESPACE: GitLab CI project namespace (falls back to GITHUB_REPOSITORY_OWNER)
-    - CI_REPOSITORY_URL: GitLab CI repository URL (falls back to READTHEDOCS_GIT_CLONE_URL)
+    - `EVITA`: Explicitly set to "true" or "1" to indicate an EVITA project,
 
-    The function checks if "evita" appears in any of these values (case-insensitive).
+    or the function checks if "evita" appears in any of the environment variables
+    (case-insensitive):
+
+    - `CI_PROJECT_NAME`: GitLab CI project name (falls back to `GITHUB_REPOSITORY`)
+    - `CI_PROJECT_NAMESPACE`: GitLab CI project namespace (falls back to `GITHUB_REPOSITORY_OWNER`)
+    - `CI_REPOSITORY_URL`: GitLab CI repository URL (falls back to `READTHEDOCS_GIT_CLONE_URL`)
 
     Returns
     -------
@@ -71,12 +73,15 @@ def config_branding(app: Sphinx, config):
     }
     # NOTE: the above announcment will be only kept during review phase.
 
-    config.copyright = getattr(config, "copyright", "") + """\
-    🇪🇺 Funded by the European Union. Views and opinions expressed 
-    are however those of the author(s) only and do not necessarily reflect those of 
+    config.copyright = (
+        getattr(config, "copyright", "")
+        + """\
+    🇪🇺 Funded by the European Union. Views and opinions expressed
+    are however those of the author(s) only and do not necessarily reflect those of
     the European Union or the granting authority (European High-Performance Computing Joint Undertaking: EuroHPC JU).
     Neither the European Union nor the granting authority can be held responsible for them.
 """
+    )
 
 
 def config_theme(app: Sphinx, config):

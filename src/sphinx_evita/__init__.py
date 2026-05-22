@@ -7,6 +7,7 @@ from sphinx.util import logging
 
 if TYPE_CHECKING:
     from typing import Final
+
     from sphinx.application import Sphinx
 
 from importlib.metadata import version
@@ -16,7 +17,32 @@ __version__ = version("sphinx_evita")
 
 
 def setup(app: Sphinx) -> dict[str, Any]:
-    """Setup function for the sphinx-evita extension."""
+    """The main powerhorse of this extension is {func}`sphinx_evita.setup`.
+    It does the following:
+
+    1. Connects the {func}`sphinx_evita.init_static_path` function to the `builder-inited` event.
+       This ensures that static files (like CSS or JavaScript) are properly
+       linked when the HTML page loads.
+
+    2. Sets up three sub-extensions:
+       - {mod}`sphinx_evita.pdfembed`: exposes the `pdfembed` directive.
+       - {mod}`sphinx_evita.directives`: defines some more custom Sphinx directives for
+       the extension.
+       - {mod}`sphinx_evita.css`: links extra CSS stylesheets.
+
+    3. Checks if the current project is an EVITA project using the
+       {func}`sphinx_evita.hooks.is_evita_project` function.
+       If it is, it configures branding and
+       theme settings by connecting the {func}`sphinx_evita.hooks.config_branding` and
+       {func}`sphinx_evita.hooks.config_theme` functions to the `config-inited` event.
+       If not, it logs a warning. Which means that certain `conf.py` values gets
+       overwritten.
+
+    Finally it returns a dictionary with metadata about the extension, including its
+    version and flags indicating that it is safe for parallel reading and
+    writing.
+
+    """
     app.connect("builder-inited", init_static_path)
 
     app.setup_extension(f"{__name__}.pdfembed")
