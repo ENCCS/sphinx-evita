@@ -9,10 +9,16 @@
 The official [EVITA template](https://github.com/ENCCS/evita-material-template/) is pre-configured to use this.
 ```
 
+
+```{eval-rst}
+.. autodoc2-docstring:: sphinx_evita.setup
+   :parser: myst
+```
+
 ```{toctree}
 :maxdepth: 2
 :caption: Contents:
 
+apidocs/index
 ref-for-module-authors
 ```
-

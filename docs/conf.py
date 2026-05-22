@@ -1,4 +1,5 @@
 from sphinx.application import Sphinx
+
 # Configuration file for the Sphinx documentation builder.
 #
 # For the full list of built-in configuration values, see the documentation:
@@ -20,10 +21,24 @@ conf_py_path = "docs"
 # -- General configuration ---------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#general-configuration
 
-extensions = ["sphinx_lesson", "sphinx_evita", "sphinx_design", "sphinxcontrib.bibtex"]
+extensions = [
+    "sphinx_lesson",
+    "sphinx_evita",
+    "sphinx_design",
+    "sphinxcontrib.bibtex",
+    # "sphinxcontrib.mermaid",
+    "sphinx.ext.intersphinx",
+    # "sphinx.ext.autosummary",
+    # "sphinx.ext.autodoc",
+    "autodoc2",
+]
 
+myst_fence_as_directive = ["mermaid"]
 myst_enable_extensions = ["colon_fence", "attrs_inline"]
 bibtex_bibfiles = ["references.bib"]
+
+autodoc2_packages = ["../src/sphinx_evita"]
+autodoc2_render_plugin = "myst"
 
 templates_path = ["_templates"]
 exclude_patterns = ["_build", "Thumbs.db", ".DS_Store"]
@@ -32,8 +47,8 @@ exclude_patterns = ["_build", "Thumbs.db", ".DS_Store"]
 # -- Options for HTML output -------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#options-for-html-output
 from pathlib import Path
-from sphinx_evita import icons
 
+from sphinx_evita import icons
 
 # Auto-detect directory name. This can break, but useful as a default.
 HERE = Path(__file__).parent
@@ -70,6 +85,13 @@ html_theme_options = {
         },
     ],
 }
+
+intersphinx_mapping = {
+    "guidelines": ("https://guidelines-736bdb.pages.code.europa.eu/", None)
+}
+intersphinx_disabled_reftypes = []
+
+intersphinx_timeout = 3
 
 
 def setup(app: Sphinx):

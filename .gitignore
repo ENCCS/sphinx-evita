@@ -210,3 +210,4 @@ __marimo__/
 .python-version
 uv.lock
 jupyter_execute
+docs/apidocs
