@@ -34,7 +34,7 @@ extensions = [
 ]
 
 myst_fence_as_directive = ["mermaid"]
-myst_enable_extensions = ["colon_fence", "attrs_inline"]
+myst_enable_extensions = ["colon_fence", "attrs_inline", "deflist"]
 bibtex_bibfiles = ["references.bib"]
 
 autodoc2_packages = ["../src/sphinx_evita"]

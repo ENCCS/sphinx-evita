@@ -1,3 +1,24 @@
+"""Provides the `pdfembed` directive implemented in {class}`PDFEmbedDirective`.
+
+The *extension* also declares a configuration value meant for
+Sphinx `conf.py`, `pdfembed_html_tag` which defaults to `"iframe"`.
+
+This means that an `<iframe ...></iframe>` HTML tag will be used
+to embed the PDF. Alternative value is `"object"` tag which embeds
+using an `<object></object>`.
+
+Examples
+--------
+
+```markdown
+:::{pdfembed} _static/path/to/file.pdf
+:height: 500px
+:width: 100%
+:align: center
+:::
+``
+"""
+
 from __future__ import annotations
 
 from typing import TYPE_CHECKING, Any
@@ -24,7 +45,11 @@ def setup(app: Sphinx) -> dict[str, Any]:
     app.add_directive("pdfembed", PDFEmbedDirective)
     app.add_config_value("pdfembed_html_tag", "object", "html")
 
-    return {"version": __version__, "parallel_read_safe": True, "parallel_write_safe": True}
+    return {
+        "version": __version__,
+        "parallel_read_safe": True,
+        "parallel_write_safe": True,
+    }
 
 
 logger = logging.getLogger(__name__)
@@ -35,13 +60,38 @@ class pdfembed(nodes.General, nodes.Element):
 
 
 def align_spec(argument) -> str:
-    # Allow left, center, right
+    """Supported values for :align: are left, center, right."""
     return directives.choice(argument, ("left", "center", "right"))
 
 
 class PDFEmbedDirective(SphinxDirective):
-    """
-    Directive to embed a PDF via iframe.
+    """Directive to embed a PDF via iframe.
+
+    :::{admonition} pdfembed options
+    :class: hint
+
+    `:height:` length
+    : The height of the PDF embed. Defaults to 550vh.
+
+    `:width:` length or percentage
+    : The width of the PDF embed. Defaults to 100%.
+
+    `:align:`
+    : The alignment of the PDF embed. Defaults to center.
+
+    `:title:` text
+    : The title of the PDF embed. Defaults to simply, PDF.
+
+    `:frameborder:` integer
+    : The frameborder of the PDF embed. Defaults to 1.
+
+    `:scrolling:` text
+    : The scrolling of the PDF embed. Defaults to auto.
+
+    `:style:` text
+    : The style of the PDF embed. Defaults to a thin solid border.
+    :::
+
     """
 
     has_content = False
@@ -52,7 +102,7 @@ class PDFEmbedDirective(SphinxDirective):
         "height": directives.unchanged,
         "width": directives.unchanged,
         "align": align_spec,
-        "id": directives.unchanged,
+        # "id": directives.unchanged,
         "title": directives.unchanged,
         "frameborder": directives.unchanged,
         "scrolling": directives.unchanged,
