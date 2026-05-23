@@ -19,7 +19,10 @@ STATIC_PATH = Path(__file__).parent / "_static"
 
 
 def setup(app: Sphinx) -> dict[str, Any]:
-    """The main powerhorse of this extension is {func}`sphinx_evita.setup`.
+    """
+    Implementation
+    ==============
+    The main powerhorse of this extension is {func}`sphinx_evita.setup`.
     It does the following:
 
     1. Connects the {func}`sphinx_evita.init_static_path` function to the `builder-inited` event.
