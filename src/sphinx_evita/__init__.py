@@ -12,8 +12,10 @@ if TYPE_CHECKING:
 
 from importlib.metadata import version
 
-LOGGER: Final[logging.SphinxLoggerAdapter] = logging.getLogger(__name__)
 __version__ = version("sphinx_evita")
+
+LOGGER: Final[logging.SphinxLoggerAdapter] = logging.getLogger(__name__)
+STATIC_PATH = Path(__file__).parent / "_static"
 
 
 def setup(app: Sphinx) -> dict[str, Any]:
@@ -42,8 +44,25 @@ def setup(app: Sphinx) -> dict[str, Any]:
     version and flags indicating that it is safe for parallel reading and
     writing.
 
+    :::{seealso}
+    <https://www.sphinx-doc.org/en/master/extdev/event_callbacks.html>
+    :::
+
+    Configuration
+    -------------
+    The *extension* also declares certain configuration values meant for
+    Sphinx `conf.py`,
+
+    ```{eval-rst}
+    .. autodoc2-docstring:: sphinx_evita.pdfembed.setup
+       :parser: myst
+    ```
+    ```{eval-rst}
+    .. autodoc2-docstring:: sphinx_evita.css.setup
+       :parser: myst
+    ```
+
     """
-    app.connect("builder-inited", init_static_path)
 
     app.setup_extension(f"{__name__}.pdfembed")
     app.setup_extension(f"{__name__}.directives")
@@ -66,6 +85,8 @@ def setup(app: Sphinx) -> dict[str, Any]:
             " sphinx_evita.hooks.is_evita_project() for more details."
         )
 
+    app.connect("builder-inited", init_static_path)
+
     return {
         "version": __version__,
         "parallel_read_safe": True,
@@ -73,7 +94,6 @@ def setup(app: Sphinx) -> dict[str, Any]:
     }
 
 
-def init_static_path(app):
+def init_static_path(app: Sphinx):
     """Add sphinx_evita/_static to resolve css files, logo etc."""
-    static_path = Path(__file__).parent / "_static"
-    app.config.html_static_path.append(str(static_path.resolve()))
+    app.config.html_static_path.append(str(STATIC_PATH.resolve()))

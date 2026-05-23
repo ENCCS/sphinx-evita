@@ -1,12 +1,5 @@
 """Provides the `pdfembed` directive implemented in {class}`PDFEmbedDirective`.
 
-The *extension* also declares a configuration value meant for
-Sphinx `conf.py`, `pdfembed_html_tag` which defaults to `"iframe"`.
-
-This means that an `<iframe ...></iframe>` HTML tag will be used
-to embed the PDF. Alternative value is `"object"` tag which embeds
-using an `<object></object>`.
-
 Examples
 --------
 
@@ -16,7 +9,8 @@ Examples
 :width: 100%
 :align: center
 :::
-``
+```
+
 """
 
 from __future__ import annotations
@@ -36,6 +30,12 @@ from . import __version__
 
 
 def setup(app: Sphinx) -> dict[str, Any]:
+    """
+    - `evita_pdfembed_html_tag` which defaults to `"iframe"`.
+        This means that an `<iframe ...></iframe>` HTML tag will be used
+        to embed the PDF. Alternative value is `"object"` tag which embeds
+        using an `<object></object>`.
+    """
     app.add_node(
         pdfembed,
         html=(html_visit_pdfembed, None),
@@ -43,7 +43,7 @@ def setup(app: Sphinx) -> dict[str, Any]:
         # Optionally add for other builders
     )
     app.add_directive("pdfembed", PDFEmbedDirective)
-    app.add_config_value("pdfembed_html_tag", "object", "html")
+    app.add_config_value("evita_pdfembed_html_tag", "object", "html")
 
     return {
         "version": __version__,
@@ -128,7 +128,7 @@ class PDFEmbedDirective(SphinxDirective):
 
 def html_visit_pdfembed(self, node):
     """Embed in HTML using object or iframe."""
-    match getattr(self.builder.config, "pdfembed_html_tag", "object").lower():
+    match getattr(self.builder.config, "evita_pdfembed_html_tag", "object").lower():
         case "iframe":
             # Compose the <iframe> tag
             tag = (

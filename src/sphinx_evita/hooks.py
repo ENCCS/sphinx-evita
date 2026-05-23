@@ -76,7 +76,7 @@ def config_branding(app: Sphinx, config):
     config.copyright = (
         getattr(config, "copyright", "")
         + """\
-    🇪🇺 Funded by the European Union. Views and opinions expressed
+    | Funded by the European Union. Views and opinions expressed
     are however those of the author(s) only and do not necessarily reflect those of
     the European Union or the granting authority (European High-Performance Computing Joint Undertaking: EuroHPC JU).
     Neither the European Union nor the granting authority can be held responsible for them.
