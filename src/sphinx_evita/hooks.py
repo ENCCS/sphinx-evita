@@ -73,8 +73,11 @@ def config_branding(app: Sphinx, config):
     }
     # NOTE: the above announcment will be only kept during review phase.
 
+    if not config.evita_eu_funding_badge:
+        config.evita_eu_funding_badge = "funded"
+
     config.copyright = (
-        getattr(config, "copyright", "")
+        config.copyright
         + """\
     | Funded by the European Union. Views and opinions expressed
     are however those of the author(s) only and do not necessarily reflect those of

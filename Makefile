@@ -11,3 +11,6 @@ tests:
 docs:
 	EVITA=1 uv run --group docs --no-dev make -C docs livehtml
 
+clean:
+	uv run make -C docs clean
+

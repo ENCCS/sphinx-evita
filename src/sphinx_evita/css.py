@@ -14,6 +14,9 @@ def setup(app: Sphinx) -> dict[str, Any]:
         `"funded"`, `"co-funded"`, `""` (default, empty string). Original files
         from sourced from
         [here](https://ec.europa.eu/regional_policy/information-sources/logo-download-center_en).
+        In the special case where it is detected to be an EVITA project by
+        {func}`sphinx_evita.hooks.is_evita_project`,
+        the badge will be set as `"funded"` automatically.
     """
     app.add_config_value(
         "evita_eu_funding_badge", default="", rebuild="html", types=str
@@ -21,7 +24,7 @@ def setup(app: Sphinx) -> dict[str, Any]:
 
     app.add_css_file("furo_ext_lesson.css")
 
-    app.connect("config-inited", add_evita_eu_funding_badge)
+    app.connect("builder-inited", add_evita_eu_funding_badge)
 
     return {
         "version": __version__,
@@ -30,8 +33,8 @@ def setup(app: Sphinx) -> dict[str, Any]:
     }
 
 
-def add_evita_eu_funding_badge(app: Sphinx, config):
-    match config.evita_eu_funding_badge:
+def add_evita_eu_funding_badge(app: Sphinx):
+    match app.config.evita_eu_funding_badge:
         case "funded":
             app.add_css_file("EN_Funded.css")
         case "co-funded":
