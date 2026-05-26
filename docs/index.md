@@ -6,7 +6,7 @@
 ```
 
 ```{note}
-The official [EVITA template](https://github.com/ENCCS/evita-material-template/) is pre-configured to use this.
+The official [EVITA template](https://code.europa.eu/eurohpc-ju/evita/module-template) is pre-configured to use this.
 ```
 
 
