@@ -1,7 +1,7 @@
 .copyright:before {
     content: "";
     display: block;
-    width: 500px;
+    width: 100%;
     height: 50px;
     background-image: url("EN_Co-funded/EN_Co-fundedbytheEU_RGB_POS.png");
     background-size: contain;
