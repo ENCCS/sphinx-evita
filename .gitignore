@@ -211,3 +211,4 @@ __marimo__/
 uv.lock
 jupyter_execute
 docs/apidocs
+src/sphinx_evita/_static/furo_ext_lesson.css

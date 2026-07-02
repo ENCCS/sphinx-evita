@@ -29,8 +29,12 @@ jobs:
       with:
         python-version: 3.11
     
+    - name: Install build dependencies
+      run: command -v esbuild || npm install -g esbuild
+
     - name: Build package distributions
-      run: uv build
+      run: make build
 
     - name: Publish package distributions to PyPI
       uses: pypa/gh-action-pypi-publish@release/v1
+
